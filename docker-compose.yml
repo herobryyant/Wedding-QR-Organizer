@@ -1,0 +1,36 @@
+services:
+  db:
+    image: postgres:16-alpine
+    environment:
+      POSTGRES_DB: wedding
+      POSTGRES_USER: wedding
+      POSTGRES_PASSWORD: ${DATABASE_PASSWORD:-wedding}
+    volumes:
+      - wedding-data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U wedding -d wedding"]
+      interval: 5s
+      timeout: 3s
+      retries: 20
+  backend:
+    build: ./backend
+    environment:
+      DATABASE_URL: jdbc:postgresql://db:5432/wedding
+      DATABASE_USERNAME: wedding
+      DATABASE_PASSWORD: ${DATABASE_PASSWORD:-wedding}
+      ADMIN_PASSWORD: ${ADMIN_PASSWORD:-change-me-now}
+    depends_on:
+      db:
+        condition: service_healthy
+  frontend:
+    build:
+      context: ./frontend
+      args:
+        VITE_COUPLE_NAMES: ${VITE_COUPLE_NAMES:-Alex & Jordan}
+        VITE_WEDDING_DATE: ${VITE_WEDDING_DATE:-Our wedding day}
+    ports:
+      - "8088:80"
+    depends_on:
+      - backend
+volumes:
+  wedding-data:
