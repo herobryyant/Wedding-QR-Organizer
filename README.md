@@ -1,6 +1,6 @@
-[![CI](https://github.com/herobryyant/Wedding-QR-Organizer/actions/workflows/ci.yml/badge.svg)](https://github.com/herobryyant/Wedding-QR-Organizer/actions/workflows/ci.yml)
-
 # Ever After — Wedding Seat Finder
+
+[![CI](https://github.com/herobryyant/Wedding-QR-Organizer/actions/workflows/ci.yml/badge.svg)](https://github.com/herobryyant/Wedding-QR-Organizer/actions/workflows/ci.yml)
 
 A full stack wedding seating chart MVP. Guests scan a QR code, search for their own name, and see their assigned table. Organizers sign in to manage the guest list, import or export a CSV, and print the event QR code.
 
