@@ -1,12 +1,12 @@
 # Ever After — Wedding Seat Finder
 
-A full-stack wedding seating chart MVP. Guests scan a QR code, search for their own name, and see their assigned table. Organizers sign in to manage the guest list, import or export a CSV, and print the event QR code.
+A full stack wedding seating chart MVP. Guests scan a QR code, search for their own name, and see their assigned table. Organizers sign in to manage the guest list, import or export a CSV, and print the event QR code.
 
 ## Features
 
-- Mobile-friendly guest lookup with partial-name matching and a 20-result cap
+- Mobile friendly guest lookup with name matching and a 20 result cap
 - Guest results only; there is no public full guest directory
-- Organizer sign-in with a 12-hour in-memory session token
+- Organizer sign in with a 12 hour in-memory session token
 - Add, edit, remove, and filter guests
 - CSV import with `name` and `table` columns, CSV export, and downloadable template
 - Guest/table totals and a printable event QR code
@@ -90,4 +90,4 @@ Admin requests use `Authorization: Bearer <token>`.
 
 ## MVP scope and next steps
 
-This MVP supports one event per deployment. Organizer sessions are kept in API memory, so signing out or restarting the API invalidates sessions; use a durable identity provider and persistent session/JWT strategy before multi-user production use. Other natural extensions are multiple events, guest groups/plus-ones, RSVP tracking, and event-specific access codes.
+This MVP supports one event per deployment. Organizer sessions are kept in API memory, so signing out or restarting the API invalidates sessions; use a durable identity provider and persistent session/JWT strategy before multi user production use. Other natural extensions are multiple events, guest groups/plus ones, RSVP tracking, and event specific access codes.
